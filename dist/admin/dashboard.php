@@ -17,7 +17,7 @@ if (!empty($_SESSION["id"])) {
     <link href="../../src/output.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100">
-    <div class="flex bg-gray-100">
+    <div class="flex h-screen bg-gray-100">
         <!-- Sidebar -->
         <div class="absolute inset-y-0 left-0 w-64 px-2 space-y-6 text-white transition duration-200 ease-in-out transform -translate-x-full bg-green-900 py-7 md:relative md:translate-x-0">
             <a href="#" class="flex items-center px-4 space-x-2 text-white">

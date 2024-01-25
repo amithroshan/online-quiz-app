@@ -1,11 +1,13 @@
 <?php
+session_start();
 require '../config.php';
+
 if (!empty($_SESSION["id"])) {
-    $id = $_SESSION["id"];
-    $result = mysqli_query($conn, "SELECT * FROM student WHERE id=$id");
-    $row = mysqli_fetch_assoc($result);
+    $teacher_id = $_SESSION["id"];
+    $result = mysqli_query($conn, "SELECT * FROM exam_category WHERE tid=$teacher_id");
 } else {
     header("location: ../index.php");
+    exit;
 }
 ?>
 
@@ -57,11 +59,9 @@ if (!empty($_SESSION["id"])) {
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
                                                         <?php
-                                                            $count=0;
-                                                            $res=mysqli_query($conn,"select * from exam_category");
-                                                            while($row=mysqli_fetch_array($res))
-                                                            {
-                                                                $count=$count+1;
+                                                            $count = 0;
+                                                            while ($row = mysqli_fetch_array($result)) {
+                                                                $count++;
                                                                 ?>
                                                                 <tr>
                                                                 <th class="px-1 py-2 text-center" scope="row"><?php echo $count; ?></th>
@@ -79,15 +79,3 @@ if (!empty($_SESSION["id"])) {
     </div>
 </body>
 </html>
-<?php
-if (isset($_POST["submit1"]))
-{
-    mysqli_query($conn,"insert into exam_category values(NULL,'$_POST[examname]','$_POST[examtime]')") or die(mysqli_error($conn));
-    ?>
-    <script type="text/javascript">
-        alert("exam added successfully");
-        window.location.href=window.location.href;
-    </script>
-    <?php
-}
-?>
