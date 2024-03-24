@@ -95,7 +95,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    background:url(user/image/background.jpeg);
+    background:url(user/image/background.png);
     background-color: #aaaaaa;
     background-size: cover;
     background-position: center;
@@ -425,7 +425,7 @@ header .bx{
     /**/
 
     .socials li{
-        margin: 0px 5px -30px 5px;
+        margin: 0px 5px 0px 5px;
     }
     .footer-bootom p{
         font-size: 11px;
